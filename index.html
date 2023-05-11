@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Drum Machine</title>
+    <script>
+      function play(btn) {
+      var audio = btn.querySelector("audio");
+      if (audio.currentTime < audio.duration) {
+    // Audio is still playing, do not start a new one
+        return;
+    }
+    audio.play();
+    }
+
+     function play(btn) {
+        var audio = btn.querySelector("audio");
+        audio.play();
+        var clipName = audio.src.split("/").pop();
+        clipName = clipName.substring(0, clipName.lastIndexOf("."));
+        document.getElementById("display").textContent = clipName;
+           }
+
+document.addEventListener("keydown", function(event) {
+        var keyCode = event.keyCode;
+        var button = null;
+        switch(keyCode) {
+          case 81:
+            button = document.getElementById("drum-0");
+            break;
+          case 87:
+            button = document.getElementById("drum-1");
+            break;
+          case 69:
+            button = document.getElementById("drum-2");
+            break;
+          case 65:
+            button = document.getElementById("drum-3");
+            break;
+          case 83:
+            button = document.getElementById("drum-4");
+            break;
+          case 68:
+            button = document.getElementById("drum-5");
+            break;
+          case 90:
+            button = document.getElementById("drum-6");
+            break;
+          case 88:
+            button = document.getElementById("drum-7");
+            break;
+          case 67:
+            button = document.getElementById("drum-8");
+            break;
+        }
+        if(button) {
+          button.click();
+        }
+      });
+
+//
+    </script>
+  </head>
+  <body>
+    <div class="container" id="drum-machine">
+      <h1 class="text-center" >Drum Machine</h1>
+      
+      <div id="display"></div>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-0" onclick=play(this)>
+        Q
+        <audio src="./clip/Q.mp3" class="clip "id="Q"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-1" onclick=play(this)>
+        W
+        <audio src="./clip/W.mp3" class="clip "id="W"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-2" onclick=play(this)>
+        E
+        <audio src="./clip/E.mp3" class="clip "id="E"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-3" onclick=play(this)>
+        A
+        <audio src="./clip/A.mp3" class="clip "id="A"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-4" onclick=play(this)>
+        S
+        <audio src="./clip/S.mp3" class="clip "id="S"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-5" onclick=play(this)>
+        D
+        <audio src="./clip/D.mp3" class="clip "id="D"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-6" onclick=play(this)>
+        Z
+        <audio src="./clip/Z.mp3" class="clip "id="Z"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-7" onclick=play(this)>
+        X
+        <audio src="./clip/X.mp3" class="clip "id="X"></audio>
+      </button>
+      <button class="drum-pad btn btn-block btn-primary" id="drum-8" onclick=play(this)>
+        C
+        <audio src="./clip/C.mp3" class="clip "id="C"></audio>
+      </button>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
